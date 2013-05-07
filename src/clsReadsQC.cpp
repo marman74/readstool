@@ -129,23 +129,23 @@ int clsReadsQC::getFields(){
 		count=0;
 		for(p=0;currentRead[p]!='\0'; p++){//scanning of the sunbstrings
 			if (currentRead[p]=='\t') {
-				int dim=p-prev+1;
+				int dim=p-prev;
 				readFields[count]=new char [dim];//allocation of a char buf for the substring
 				for(i=prev, j=0; i<p; i++, j++){//copy of the substring in the char buf
 					readFields[count][j]=currentRead[i];
 				}
-			readFields[count][dim]='\0';//add string terminator
+			readFields[count][dim-1]='\0';//add string terminator
 			//iterators update
 			prev=p+1;
 			count++;
 			}
 		}
-		int dim=p-prev+1;//copy of the last substring
+		int dim=p-prev;//copy of the last substring
 		readFields[count]=new char [dim];
 		for(i=prev, j=0; i<p; i++, j++){
 			readFields[count][j]=currentRead[i];
 		}
-		readFields[count][dim]='\0';//string terminator
+		readFields[count][dim-1]='\0';//string terminator
 		return(0);
 	}
 	else return(3);
