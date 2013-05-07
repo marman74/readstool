@@ -1,0 +1,3 @@
+miR	Counts	Normalized
+hsa-miR-21	166	218997
+hsa-miR-125b	137	180739
